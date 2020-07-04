@@ -34,7 +34,7 @@ class InfinityStars extends Component {
       let sprite = new THREE.TextureLoader().load(STARLITE);
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
-        size: 0.7,
+        size: 0.4,
         map: sprite,
       });
       stars = new THREE.Points(starGeo, starMaterial);
@@ -57,7 +57,7 @@ class InfinityStars extends Component {
         }
       });
       starGeo.verticesNeedUpdate = true;
-      stars.rotation.y += 0.002;
+      stars.rotation.y += 0.004;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
