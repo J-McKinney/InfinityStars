@@ -1,47 +1,54 @@
 import React, { Component } from "react";
 import * as THREE from "three";
+import STARLITE from "../InfinityStars/star.png";
+
+let scene, camera, renderer, stars, starGeo;
 
 class InfinityStars extends Component {
   componentDidMount() {
-    let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      1,
-      1000
-    );
-    camera.position.z = 1;
-    camera.position.x = Math.PI / 2;
-
-    let renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    this.mount.appendChild(renderer.domElement);
-
-    let starGeo = new THREE.Geometry();
-    for (let i = 0; i < 6000; i++) {
-      let star = new THREE.Vector3(
-        Math.random() * 600 - 300,
-        Math.random() * 600 - 300,
-        Math.random() * 600 - 300
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
       );
-      star.velocity = 0;
-      star.acceleration = 0.02;
-      starGeo.vertices.push(star);
+      camera.position.z = 1;
+      camera.position.x = Math.PI / 2;
+
+      renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      document.body.appendChild(renderer.domElement);
+      // this.mount.appendChild(renderer.domElement);
+
+      starGeo = new THREE.Geometry();
+      for (let i = 0; i < 6000; i++) {
+        let star = new THREE.Vector3(
+          Math.random() * 600 - 300,
+          Math.random() * 600 - 300,
+          Math.random() * 600 - 300
+        );
+        star.velocity = 0;
+        star.acceleration = 0.02;
+        starGeo.vertices.push(star);
+      }
+
+      let sprite = new THREE.TextureLoader().load(STARLITE);
+      let starMaterial = new THREE.PointsMaterial({
+        color: 0xaaaaaa,
+        size: 0.7,
+        map: sprite,
+      });
+
+      stars = new THREE.Points(starGeo, starMaterial);
+      scene.add(stars);
+
+      window.addEventListener("resize", onWindowResize, false);
+
+      animate();
     }
-
-    let sprite = new THREE.TextureLoader().load("star.png");
-    let starMaterial = new THREE.PointsMaterial({
-      color: 0xaaaaaa,
-      size: 0.7,
-      map: sprite,
-    });
-
-    let stars = new THREE.Points(starGeo, starMaterial);
-    scene.add(stars);
-
-    window.addEventListener("resize", onWindowResize, false);
-
-    animate();
 
     function onWindowResize() {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -64,15 +71,13 @@ class InfinityStars extends Component {
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
+    init();
   }
 
   render() {
     return (
       <>
-        <div className="text-box">
-          <div class="heading">To infinity and Beyond</div>
-          <div class="button-wrapper"></div>
-        </div>
+      <div ref={(ref) => (this.mount = ref)} />
       </>
     );
   }
