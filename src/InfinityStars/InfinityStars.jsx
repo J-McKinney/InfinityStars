@@ -70,8 +70,8 @@ class InfinityStars extends Component {
       <>
         <div ref={(ref) => (this.mount = ref)}>
           <div className="text-box">
-            <div className="heading">To Infinity And Beyond</div>
-            <div className="heading">&nbsp;&nbsp;Thanks To Three.JS</div>
+            {/*<div className="heading">To Infinity And Beyond</div>
+    <div className="heading">&nbsp;&nbsp;Thanks To Three.JS</div>*/}
           </div>
         </div>
       </>
