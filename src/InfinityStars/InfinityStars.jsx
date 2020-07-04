@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as THREE from "three";
-// import STARLITE from "../InfinityStars/star.png";
-import Earth from "../InfinityStars/earth.png";
+import STARLITE from "../InfinityStars/star.png";
 import "./InfinityStars.css";
 
 let scene, camera, renderer, stars, starGeo;
@@ -32,7 +31,7 @@ class InfinityStars extends Component {
         star.acceleration = 0.02;
         starGeo.vertices.push(star);
       }
-      let sprite = new THREE.TextureLoader().load(Earth);
+      let sprite = new THREE.TextureLoader().load(STARLITE);
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
         size: 0.7,
