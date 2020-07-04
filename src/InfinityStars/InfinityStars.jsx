@@ -10,7 +10,7 @@ class InfinityStars extends Component {
     function init() {
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(
-        60,
+        100,
         window.innerWidth / window.innerHeight,
         0.1,
         1000
@@ -57,8 +57,9 @@ class InfinityStars extends Component {
         }
       });
       starGeo.verticesNeedUpdate = true;
-      stars.rotation.y += 0.002;
+      stars.rotation.y += 0.004; // 0.002
       stars.rotation.x = -1;
+      stars.rotation.z = -44; // -25, -38, -44
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
@@ -70,8 +71,8 @@ class InfinityStars extends Component {
       <>
         <div ref={(ref) => (this.mount = ref)}>
           <div className="text-box">
-            {/*<div className="heading">To Infinity And Beyond</div>
-    <div className="heading">&nbsp;&nbsp;Thanks To Three.JS</div>*/}
+            <div className="heading">To Infinity And Beyond</div>
+            <div className="heading">&nbsp;&nbsp;Thanks To Three.JS</div>
           </div>
         </div>
       </>
