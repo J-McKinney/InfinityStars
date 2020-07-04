@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as THREE from "three";
-import STARLITE from "../InfinityStars/star.png";
+// import STARLITE from "../InfinityStars/star.png";
+import Earth from "../InfinityStars/earth.png";
 import "./InfinityStars.css";
 
 let scene, camera, renderer, stars, starGeo;
@@ -31,10 +32,10 @@ class InfinityStars extends Component {
         star.acceleration = 0.02;
         starGeo.vertices.push(star);
       }
-      let sprite = new THREE.TextureLoader().load(STARLITE);
+      let sprite = new THREE.TextureLoader().load(Earth);
       let starMaterial = new THREE.PointsMaterial({
         color: 0xaaaaaa,
-        size: 0.4,
+        size: 0.7,
         map: sprite,
       });
       stars = new THREE.Points(starGeo, starMaterial);
@@ -57,7 +58,8 @@ class InfinityStars extends Component {
         }
       });
       starGeo.verticesNeedUpdate = true;
-      stars.rotation.y += 0.004;
+      stars.rotation.y += 0.002;
+      stars.rotation.x = -1;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
@@ -70,6 +72,7 @@ class InfinityStars extends Component {
         <div ref={(ref) => (this.mount = ref)}>
           <div className="text-box">
             <div className="heading">To Infinity And Beyond</div>
+            <div className="heading">&nbsp;&nbsp;Thanks To Three.JS</div>
           </div>
         </div>
       </>
