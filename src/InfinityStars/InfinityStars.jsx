@@ -69,11 +69,13 @@ class InfinityStars extends Component {
   render() {
     return (
       <>
-        <div ref={(ref) => (this.mount = ref)}>
-          <div className="text-box">
-            <div className="heading">Infinite-Stars</div>
-            <br />
-            <div className="heading">&nbsp;&nbsp;&nbsp;Three.JS</div>
+        <div className="starWrapper">
+          <div ref={(ref) => (this.mount = ref)}>
+            <div className="text-box">
+              <div className="heading">Infinite Stars</div>
+              <br />
+              <div className="heading">Three.JS</div>
+            </div>
           </div>
         </div>
       </>
