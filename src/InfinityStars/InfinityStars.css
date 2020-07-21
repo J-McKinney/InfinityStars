@@ -17,6 +17,8 @@ canvas {
 }
 
 .starWrapper {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   justify-content: center;
 }
@@ -33,4 +35,6 @@ canvas {
 .heading {
   text-align: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
