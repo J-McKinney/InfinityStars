@@ -1,3 +1,7 @@
+## Infinite Stars and Beyond
+
+Demo: [Infinity Stars](https://j-mckinney.github.io/InfinityStars/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
