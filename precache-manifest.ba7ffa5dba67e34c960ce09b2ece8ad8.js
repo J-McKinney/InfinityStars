@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "352c162d20bbd3a15667a191d938913f",
+    "revision": "56202078685c3dc027187c5bdd8ccc02",
     "url": "/InfinityStars/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/InfinityStars/static/css/main.4c37db02.chunk.css"
   },
   {
-    "revision": "57c098f241a45fce0d09",
-    "url": "/InfinityStars/static/js/2.609ad3a6.chunk.js"
+    "revision": "ec57e2442a4f216c9094",
+    "url": "/InfinityStars/static/js/2.e7c2de31.chunk.js"
   },
   {
-    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/InfinityStars/static/js/2.609ad3a6.chunk.js.LICENSE.txt"
+    "revision": "570d362d673dab785e62d2b8563e1118",
+    "url": "/InfinityStars/static/js/2.e7c2de31.chunk.js.LICENSE.txt"
   },
   {
     "revision": "545f754c50d72dc1c71e",
